@@ -6,6 +6,7 @@ function App() {
  
   return (
     <>
+       <h3 className="mt-5 font-extrabold text-4xl text-center">Course Registration</h3>
       <Course></Course>
     </>
   )

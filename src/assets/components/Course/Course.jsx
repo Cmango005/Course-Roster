@@ -29,11 +29,14 @@ const Course = () => {
             selectCourse.forEach(item=> {
                 cost=cost+item.price ;
             });
-            setTotalCredit(count);
+           
             const totalRemaining=20-count;
+            setTotalCredit(count);
             if(count>20){
                 return alert("You cannot choose course up to 20 credit");
+                
             }else{
+                
                 setRemaining(totalRemaining);
                 setTotalCost(cost);
                 const newSelectCourse=[...selectCourse,card];
@@ -44,30 +47,32 @@ const Course = () => {
     };
 
     return (
+        
         <div className="container mx-auto flex gap-20">
-            <div className="grid grid-cols-3 gap-10 mt-10 ">
-                {
-                course.map(card=> <Card 
-                    key={card.id}
-                     card={card}
-                     handleSelectCourse={handleSelectCourse}
-                     >
-
-                     </Card>)
-                }
-            </div>
             
-            <div className="mt-10 bg-gray-50 w-80 h-fit  ">
- 
-               <Cart selectCourse={selectCourse}
-               remaining={remaining}
-               totalCost={totalCost}
-               totalCredit={totalCredit}></Cart>
+        <div className="grid grid-cols-3 gap-10 mt-10 ">
+            {
+            course.map(card=> <Card 
+                key={card.id}
+                 card={card}
+                 handleSelectCourse={handleSelectCourse}
+                 >
 
-            </div>
-            
-          
+                 </Card>)
+            }
         </div>
+        
+        <div className="mt-10 bg-gray-50 w-80 h-fit  ">
+
+           <Cart selectCourse={selectCourse}
+           remaining={remaining}
+           totalCost={totalCost}
+           totalCredit={totalCredit}></Cart>
+
+        </div>
+        
+      
+    </div>
     );
 };
 
