@@ -7,6 +7,9 @@ import Cart from "../Cart/Cart";
 const Course = () => {
     const [course,setCourse]=useState([]);
     const [selectCourse,setSelectedCourse]=useState([]);
+    const [remaining,setRemaining]=useState(0);
+    const[totalCost,setTotalCost]=useState(0);
+    const[totalCredit,setTotalCredit]=useState(0);
     
     useEffect(()=>{
         fetch('course.json')
@@ -15,9 +18,21 @@ const Course = () => {
     },[])
     const handleSelectCourse= card=>{
         const isExist=selectCourse.find(item => item.id == card.id);
+        let count=card.credit;
+        let cost=card.price;
         if (isExist){
           return  alert("Already Taken");
         }else{
+            selectCourse.forEach(item=> {
+                count=count+item.credit ;
+            });
+            selectCourse.forEach(item=> {
+                cost=cost+item.price ;
+            });
+            setTotalCredit(count);
+            setTotalCost(cost);
+            const totalRemaining=20-count;
+            setRemaining(totalRemaining);
             const newSelectCourse=[...selectCourse,card];
             setSelectedCourse(newSelectCourse);
         }
@@ -40,7 +55,10 @@ const Course = () => {
             
             <div className="mt-10 bg-gray-50 w-80 h-fit  ">
  
-               <Cart selectCourse={selectCourse}></Cart>
+               <Cart selectCourse={selectCourse}
+               remaining={remaining}
+               totalCost={totalCost}
+               totalCredit={totalCredit}></Cart>
 
             </div>
             
