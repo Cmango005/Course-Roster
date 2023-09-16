@@ -30,13 +30,14 @@ const Course = () => {
                 cost=cost+item.price ;
             });
            
-            const totalRemaining=20-count;
-            setTotalCredit(count);
+            
+            
             if(count>20){
                 return alert("You cannot choose course up to 20 credit");
                 
             }else{
-                
+                setTotalCredit(count);
+                const totalRemaining=20-count;
                 setRemaining(totalRemaining);
                 setTotalCost(cost);
                 const newSelectCourse=[...selectCourse,card];
