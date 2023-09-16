@@ -1,12 +1,12 @@
 
 
 const Card = ({card, handleSelectCourse}) => {
-    const {img,name,description,price,credit,dollar_png,book_png}=card;
+    const {img,name,description,price,credit}=card;
     return (
         <div className=" text-center w-64 bg-slate-50 rounded-lg  shadow-2xl " >
-            <img className=""  src={img} alt="" />
+            <img className="w-60 ml-2 mt-2"  src={img} alt="" />
             <h3 className="font-extrabold text-base">{name}</h3>
-            <p className="font-medium">{description}</p>
+            <p className="font-light">{description}</p>
             <div className="flex gap-14 ml-3">
                 <div className="flex">
                 <span className="font-bold">$</span>

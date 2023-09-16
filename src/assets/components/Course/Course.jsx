@@ -32,7 +32,7 @@ const Course = () => {
            
             const totalRemaining=20-count;
             setTotalCredit(count);
-            if(count>20){
+            if(count>=20){
                 return alert("You cannot choose course up to 20 credit");
                 
             }else{
