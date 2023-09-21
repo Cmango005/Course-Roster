@@ -12,9 +12,11 @@ const Cart = ({selectCourse,remaining,totalCost,totalCredit}) => {
             <hr />
             <div>
                 <h3 className="font-bold">Course Name:</h3>
+               <ul className="ml-4 list-decimal">
                {
                 selectCourse.map(card=> <li key={card.id}>{card.name}</li>)
                }
+               </ul>
             </div>
           <hr />
           <div>
